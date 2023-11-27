@@ -32,12 +32,11 @@ public class Termo {
 
         while (!chute.equals(palavraChave) && this.numeroDeTentativa <= 6) {
             final String finalChute = chute;
-            System.out.println("Quantidade de palavras na lista: " + palavrasRestantes.size());
             palavrasRestantes.removeIf(palavra -> comparaLetrasPosicao(palavra, finalChute) != comparaLetrasPosicao(palavraChave, finalChute));
 
             chute = palavrasRestantes.get(random.nextInt(palavrasRestantes.size()));
 
-            System.out.println("Chutando: " + chute + " Tentativa: " + this.numeroDeTentativa);
+            System.out.println("Chutando: " + chute + " Tentativa: " + this.numeroDeTentativa+" Quantidade de palavras na lista: " + palavrasRestantes.size());
             this.numeroDeTentativa = this.numeroDeTentativa + 1;
         }
         if (Objects.equals(this.palavraChave, chute)) {
